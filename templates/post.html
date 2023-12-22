@@ -1,0 +1,38 @@
+{%extends 'base.html'%} {%block title%} New Post {%endblock%} {%block content%}
+<div class="container">
+  <h1>Add Post for {{user.first_name}} {{user.last_name}}</h1>
+  <div>
+    <form action="/users/{{user.id}}/posts/new" method="POST">
+      <div class="input-group mb-2">
+        <span class="input-group-text" id="title">Title:</span>
+        <input
+          type="text"
+          class="form-control"
+          name="title"
+          aria-describedby="title"
+        />
+      </div>
+      <div class="input-group mb-2">
+        <span class="input-group-text" id="content">Content: </span>
+        <textarea
+          name="content"
+          cols="30"
+          rows="10"
+          class="form-control"
+        ></textarea>
+      </div>
+      <div>
+        <button
+          type="submit"
+          formaction="/users/{{user.id}}"
+          formmethod="get"
+          class="btn btn-outline-info"
+        >
+          Cancel
+        </button>
+        <button class="btn btn-success">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+{%endblock%}

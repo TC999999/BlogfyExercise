@@ -1,15 +1,43 @@
 {%extends 'base.html'%}{%block title%} {{user.first_name}} {{user.last_name}}
 Details {%endblock%}{%block content%}
-<h1>{{user.first_name}} {{user.last_name}} Details</h1>
-<img src="{{user.image_url}}" alt="User Image" />
 
-<form action="/users">
-  <button class="btn btn-info">Home</button>
-</form>
-<form action="/users/{{user.id}}/edit">
-  <button class="btn btn-primary">Edit</button>
-</form>
-<form action="/users/{{user.id}}/delete" method="POST">
-  <button class="btn btn-danger">Delete</button>
-</form>
+<div class="d-flex flex-row ms-3 mt-3">
+  <div class="pe-3" style="width: 200px; height: 200px">
+    <img src="{{user.image_url}}" alt="User Image" class="img-thumbnail" />
+  </div>
+
+  <div>
+    <h1>{{user.first_name}} {{user.last_name}} Details</h1>
+
+    <div class="d-flex flex-row mb-5">
+      <div class="px-1">
+        <form action="/users">
+          <button class="btn btn-info">Home</button>
+        </form>
+      </div>
+      <div class="px-1">
+        <form action="/users/{{user.id}}/edit">
+          <button class="btn btn-primary">Edit</button>
+        </form>
+      </div>
+      <div class="px-1">
+        <form action="/users/{{user.id}}/delete" method="POST">
+          <button class="btn btn-danger">Delete</button>
+        </form>
+      </div>
+    </div>
+    <div>
+      <h3>Posts</h3>
+      <ul>
+        {%for post in posts%}
+        <li><a href="/posts/{{post.id}}">{{post.title}}</a></li>
+        {%endfor%}
+      </ul>
+      <form action="/users/{{user.id}}/posts/new">
+        <button class="btn btn-primary">Add Post</button>
+      </form>
+    </div>
+  </div>
+</div>
+
 {%endblock%}

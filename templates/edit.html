@@ -1,67 +1,71 @@
 {%extends 'base.html'%}{%block title%} Edit Profile{%endblock%}{%block content%}
-<h1>Edit Profile for {{user.first_name}} {{user.last_name}}</h1>
-<div>
-  <form action="/users/{{user.id}}/edit" method="POST">
-    <div>
-      <label for="first_name">First Name: </label>
-      <div>
+<div class="container">
+  <h1>Edit Profile for {{user.first_name}} {{user.last_name}}</h1>
+  <div>
+    <form action="/users/{{user.id}}/edit" method="POST">
+      <div class="input-group mb-2">
+        <span class="input-group-text" id="first_name">First Name: </span>
         <input
           type="text"
+          class="form-control"
           name="first_name"
+          aria-describedby="first_name"
           placeholder="Enter a first name"
           value="{{user.first_name}}"
           required
         />
       </div>
-    </div>
-    <div>
-      <label for="last_name">Last Name: </label>
-      <div>
+      <div class="input-group mb-2">
+        <span class="input-group-text" id="last_name">Last Name: </span>
         <input
           type="text"
+          class="form-control"
           name="last_name"
+          aria-describedby="last_name"
           placeholder="Enter a last name"
           value="{{user.last_name}}"
           required
         />
       </div>
-    </div>
-    <div>
-      <label for="image_url">Image URL: </label>
-      {%if user.image_url ==
-      "https://upload.wikimedia.org/wikipedia/commons/d/d6/Nophoto.jpg"%}
-      <div>
+      <div class="input-group mb-2">
+        <span class="input-group-text" id="image_url">Image URL: </span>
+        {%if user.image_url ==
+        "https://upload.wikimedia.org/wikipedia/commons/d/d6/Nophoto.jpg"%}
         <input
           type="text"
+          class="form-control"
           name="image_url"
+          aria-describedby="image_url"
           placeholder="Provide an image of this user"
         />
-      </div>
-      {%else%}
-      <div>
+        {%else%}
         <input
           type="text"
+          class="form-control"
           name="image_url"
+          aria-describedby="image_url"
           value="{{user.image_url}}"
           placeholder="Provide an image of this user"
         />
+        {%endif%}
       </div>
-      {%endif%}
-    </div>
-    <div>
-      <button
-        type="submit"
-        formaction="/users/{{user.id}}"
-        formmethod="get"
-        class="btn btn-outline-info"
-      >
-        Cancel
-      </button>
-    </div>
-    <div>
-      <button class="btn btn-success">Save</button>
-    </div>
-  </form>
+      <div class="d-flex flex-row">
+        <div class="pe-2">
+          <button
+            type="submit"
+            formaction="/users/{{user.id}}"
+            formmethod="get"
+            class="btn btn-outline-info"
+          >
+            Cancel
+          </button>
+        </div>
+        <div>
+          <button class="btn btn-success">Save</button>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
 
 {%endblock%}
