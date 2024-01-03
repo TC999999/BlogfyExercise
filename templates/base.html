@@ -12,10 +12,11 @@
     />
   </head>
   <body>
-    {%with messages = get_flashed_messages()%} {%if messages%}
+    {%with messages = get_flashed_messages(with_categories=true)%} {%if
+    messages%}
     <section class="messages">
-      {%for msg in messages%}
-      <p>{{msg}}</p>
+      {%for category,msg in messages%}
+      <p class="{{category}}">{{msg}}</p>
       {%endfor%}
     </section>
     {%endif%} {%endwith%} {%block content%} {%endblock%}

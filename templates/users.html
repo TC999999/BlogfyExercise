@@ -1,5 +1,6 @@
-{%extends 'base.html'%}{%block title%} User List {%endblock%}{%block content%}
-<div class="ms-3">
+{%extends 'base.html'%}{%block title%} Blogly User List {%endblock%}{%block
+content%}
+<div class="container">
   <h1>Users</h1>
   <ul>
     {%for user in users%}
@@ -8,10 +9,17 @@
     </li>
     {%endfor%}
   </ul>
-  <div>
-    <form action="/users/new">
-      <button class="btn btn-secondary">Add User</button>
-    </form>
+  <div class="d-flex flex-row">
+    <div class="me-2">
+      <form action="/users/new">
+        <button class="btn btn-secondary">Add User</button>
+      </form>
+    </div>
+    <div>
+      <form action="/tags">
+        <button class="btn btn-primary">Tag List</button>
+      </form>
+    </div>
   </div>
 </div>
 

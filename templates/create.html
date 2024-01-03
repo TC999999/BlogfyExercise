@@ -12,7 +12,6 @@ content%}
           name="first_name"
           aria-describedby="first_name"
           placeholder="Enter a first name"
-          required
         />
       </div>
       <div class="input-group mb-2">
@@ -23,7 +22,6 @@ content%}
           name="last_name"
           aria-describedby="last_name"
           placeholder="Enter a last name"
-          required
         />
       </div>
       <div class="input-group mb-2">
@@ -37,6 +35,14 @@ content%}
         />
       </div>
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button
+          class="btn btn-outline-info"
+          type="submit"
+          formaction="/users"
+          formmethod="get"
+        >
+          Cancel
+        </button>
         <button class="btn btn-success">Add</button>
       </div>
     </form>

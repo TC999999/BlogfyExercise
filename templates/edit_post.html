@@ -5,14 +5,6 @@
     <form action="/posts/{{post.id}}/edit" method="POST">
       <div class="input-group mb-2">
         <span class="input-group-text" id="title">Title: </span>
-        {%if post.title == "NO TITLE" %}
-        <input
-          type="text"
-          class="form-control"
-          name="title"
-          aria-describedby="title"
-        />
-        {%else%}
         <input
           type="text"
           class="form-control"
@@ -20,24 +12,43 @@
           aria-describedby="title"
           value="{{post.title}}"
         />
-        {%endif%}
       </div>
       <div class="input-group mb-2">
         <span class="input-group-text" id="content">Content</span>
-        {%if post.content =="NO CONTENT"%}
-        <textarea
-          name="content"
-          id=""
-          cols="30"
-          rows="10"
-          class="form-control"
-        ></textarea>
-        {%else%}
         <textarea name="content" id="" cols="30" rows="10" class="form-control">
 {{post.content}}</textarea
         >
+      </div>
+
+      {%for tag in tags%}
+      <div class="form-check">
+        {%if tag in post.tgs%}
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="tag_{{tag.id}}"
+          name="tag"
+          value="{{tag.id}}"
+          checked
+        />
+        <label for="tag_{{tag.id}}" class="form-check-label"
+          >{{tag.name}}</label
+        >
+        {%else%}
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="tag_{{tag.id}}"
+          name="tag"
+          value="{{tag.id}}"
+        />
+        <label for="tag_{{tag.id}}" class="form-check-label"
+          >{{tag.name}}</label
+        >
         {%endif%}
       </div>
+      {%endfor%}
+
       <div>
         <button
           type="submit"
