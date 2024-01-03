@@ -129,13 +129,14 @@ def add_post(user_id):
     else:
         created_at = datetime.today().ctime()
         tags = request.form.getlist("tag")
+        new_tags = [PostTag(tag_id=i) for i in tags]
 
         new_post = Post(
             title=title,
             content=content,
             created_at=created_at,
             user_id=user_id,
-            pst_tgs=[PostTag(tag_id=i) for i in tags],
+            pst_tgs=new_tags,
         )
         db.session.add(new_post)
         db.session.commit()
