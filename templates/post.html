@@ -36,18 +36,8 @@
         >
       </div>
       {%endfor%}
-
-      <div>
-        <button
-          type="submit"
-          formaction="/users/{{user.id}}"
-          formmethod="get"
-          class="btn btn-outline-info"
-        >
-          Cancel
-        </button>
-        <button class="btn btn-success">Submit</button>
-      </div>
+      <a href="/users/{{user.id}}" class="btn btn-outline-info">Cancel</a>
+      <button class="btn btn-success">Submit</button>
     </form>
   </div>
 </div>

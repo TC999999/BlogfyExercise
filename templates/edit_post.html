@@ -50,14 +50,7 @@
       {%endfor%}
 
       <div>
-        <button
-          type="submit"
-          formaction="/users/{{post.usr.id}}"
-          formmethod="get"
-          class="btn btn-outline-info"
-        >
-          Cancel
-        </button>
+        <a class="btn btn-outline-info" href="/posts/{{post.id}}">Cancel</a>
         <button class="btn btn-success">Submit</button>
       </div>
     </form>

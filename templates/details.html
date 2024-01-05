@@ -8,24 +8,11 @@ Details {%endblock%}{%block content%}
 
     <div>
       <h1>{{user.first_name}} {{user.last_name}} Details</h1>
-
-      <div class="d-flex flex-row mb-3">
-        <div class="px-1">
-          <form action="/users">
-            <button class="btn btn-info">Home</button>
-          </form>
-        </div>
-        <div class="px-1">
-          <form action="/users/{{user.id}}/edit">
-            <button class="btn btn-primary">Edit</button>
-          </form>
-        </div>
-        <div class="px-1">
-          <form action="/users/{{user.id}}/delete" method="POST">
-            <button class="btn btn-danger">Delete</button>
-          </form>
-        </div>
-      </div>
+      <form action="/users/{{user.id}}/delete" method="POST">
+        <a href="/users" class="btn btn-info">Home</a>
+        <a href="/users/{{user.id}}/edit" class="btn btn-primary">Edit</a>
+        <button class="btn btn-danger">Delete</button>
+      </form>
       <div>
         <h3>Posts</h3>
         <ul>
@@ -33,9 +20,9 @@ Details {%endblock%}{%block content%}
           <li><a href="/posts/{{post.id}}">{{post.title}}</a></li>
           {%endfor%}
         </ul>
-        <form action="/users/{{user.id}}/posts/new">
-          <button class="btn btn-primary">Add Post</button>
-        </form>
+        <a href="/users/{{user.id}}/posts/new" class="btn btn-primary"
+          >Add Post</a
+        >
       </div>
     </div>
   </div>

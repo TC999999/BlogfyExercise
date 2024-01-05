@@ -47,21 +47,9 @@
         />
         {%endif%}
       </div>
-      <div class="d-flex flex-row">
-        <div class="pe-2">
-          <button
-            type="submit"
-            formaction="/users/{{user.id}}"
-            formmethod="get"
-            class="btn btn-outline-info"
-          >
-            Cancel
-          </button>
-        </div>
-        <div>
-          <button class="btn btn-success">Save</button>
-        </div>
-      </div>
+
+      <a href="/users/{{user.id}}" class="btn btn-outline-info">Cancel</a>
+      <button class="btn btn-success">Save</button>
     </form>
   </div>
 </div>

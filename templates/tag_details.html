@@ -8,23 +8,12 @@
     <li><a href="/posts/{{post.id}}">{{post.title}}</a></li>
     {%endfor%}
   </ul>
-  <div class="d-flex flex-row">
-    <div class="me-2">
-      <form action="/tags">
-        <button class="btn btn-outline-info">Back to Tags</button>
-      </form>
-    </div>
-    <div class="me-2">
-      <form action="/tags/{{tag.id}}/edit">
-        <button class="btn btn-primary">Edit</button>
-      </form>
-    </div>
-    <div class="me-2">
-      <form action="/tags/{{tag.id}}/delete" method="post">
-        <button class="btn btn-danger">Delete</button>
-      </form>
-    </div>
-  </div>
+
+  <form action="/tags/{{tag.id}}/delete" method="POST">
+    <a href="/tags" class="btn btn-outline-info">Back to Tags</a>
+    <a href="/tags/{{tag.id}}/edit" class="btn btn-primary">Edit</a>
+    <button class="btn btn-danger">Delete</button>
+  </form>
 </div>
 
 {%endblock%}
